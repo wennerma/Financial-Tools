@@ -6,7 +6,7 @@ from outPutController import *
 lineInput = Inputer()
 outPut = Outputter()
 while(True):
-    assetList = []
+    assetList = []   #holds multiple debts and investments
     assetList = lineInput.mainSelection()
     if(len(assetList) < 2):
         if(assetList[0].type == 'Invest'):
@@ -21,8 +21,8 @@ while(True):
                 assetList[0].totalSpend()
                 outPut.totalSpendOut(assetList[0])
             elif(debtSelection == 6):
-                print("Table will print here")
-                
+                assetList[0].amoritizationTable()
+                outPut.amortizationOut(assetList[0])              
                 
 
           
