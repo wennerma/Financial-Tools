@@ -1,10 +1,34 @@
 from investmentClass import *
 from debtClass import *
 from inputController import *
+from outPutController import *
 
-lineInfo = inputer()
+lineInput = Inputer()
+outPut = Outputter()
 while(True):
-    selection = int(input("Enter 1 for debt calculator, 2 for investments, 3 for analysis: "))
-    inputList = []
-    inputList = lineInfo.inputInfo(selection)
+    assetList = []
+    assetList = lineInput.mainSelection()
+    if(len(assetList) < 2):
+        if(assetList[0].type == 'Invest'):
+            assetList[0].compoundInterest()
+            outPut.compoundInterestOut(assetList[0])
+        else:
+            debtSelection = lineInput.debtSelector()
+            if(debtSelection == 4):
+                assetList[0].monthlyPayment()
+                outPut.monthlyPaymentOut(assetList[0])
+            elif(debtSelection == 5):
+                assetList[0].totalSpend()
+                outPut.totalSpendOut(assetList[0])
+            elif(debtSelection == 6):
+                print("Table will print here")
+                
+                
+
+          
+            
+                        
     
+        
+  
+        
